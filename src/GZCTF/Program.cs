@@ -8,6 +8,7 @@ using System.Text;
 using GZCTF.Extensions;
 using GZCTF.Hubs;
 using GZCTF.Middlewares;
+using GZCTF.Models.Data.Compiled;
 using GZCTF.Models.Internal;
 using GZCTF.Repositories;
 using GZCTF.Repositories.Interface;
@@ -83,6 +84,8 @@ else
         {
             options.UseNpgsql(builder.Configuration.GetConnectionString("Database"),
                 o => o.UseQuerySplittingBehavior(QuerySplittingBehavior.SplitQuery));
+
+            options.UseModel(AppDbContextModel.Instance);
 
             if (!builder.Environment.IsDevelopment())
                 return;
