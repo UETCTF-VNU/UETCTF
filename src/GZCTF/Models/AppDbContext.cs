@@ -8,6 +8,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace GZCTF.Models;
 
+// If you make any changes to the DbContext or Entity Models, be sure to run
+// dotnet ef dbcontext optimize -c AppDbContext -o Models/Data/Compiled
+// to generate compiled model as well
+// The above command requires ConnectionStrings being set in appsettings.json
+
 public class AppDbContext(DbContextOptions<AppDbContext> options) :
     IdentityDbContext<UserInfo, IdentityRole<Guid>, Guid>(options), IDataProtectionKeyContext
 {
