@@ -1,0 +1,32 @@
+services:
+  gzctf:
+    image: gztime/gzctf:latest
+    container_name: uetctf
+    restart: always
+    environment:
+      - "GZCTF_ADMIN_PASSWORD=${GZCTF_ADMIN_PASSWORD}"
+      - "LC_ALL=en_US.UTF-8"
+    ports:
+      - "8080:8080"
+    volumes:
+      - "./data/files:/app/files"
+      - "./appsettings.json:/app/appsettings.json:ro"
+      # - "./kube-config.yaml:/app/kube-config.yaml:ro" # this is required for k8s deployment
+      - "/var/run/docker.sock:/var/run/docker.sock" # this is required for docker deployment
+    depends_on:
+      - db
+      - cache
+
+  db:
+    image: postgres:alpine
+    container_name: uetctf-db
+    restart: always
+    environment:
+      - "POSTGRES_PASSWORD=${POSTGRES_PASSWORD}"
+    volumes:
+      - "./data/db:/var/lib/postgresql/data"
+  
+  cache:
+    image: redis:alpine
+    container_name: uetctf-cache
+    restart: always
