@@ -12,6 +12,7 @@
 
 [![Telegram Group](https://img.shields.io/endpoint?color=blue&url=https%3A%2F%2Ftg.sumanjay.workers.dev%2Fgzctf)](https://telegram.dog/gzctf)
 [![QQ Group](https://img.shields.io/badge/QQ%20Group-903244818-blue)](https://jq.qq.com/?_wv=1027&k=muSqhF9x)
+[![Discord](https://img.shields.io/discord/1239476909033656320?label=Discord)](https://discord.gg/dV9A6ZjVhC)
 
 [English](./README.md), [简体中文](./README.zh.md), [日本語](./README.ja.md)
 
@@ -30,6 +31,7 @@ GZ::CTF is an open source CTF platform based on ASP.NET Core.
 - Create highly customizable challenges
 
   - Type of challenges: Static Attachment, Dynamic Attachment, Static Container, Dynamic Container
+
     - Static Attachment: Shared attachments, any configured flag can be accepted.
     - Dynamic Attachment: The number of flags and attachments must be at least the number of teams. Attachments and flags are distributed according to the teams.
     - Static Container: Shared container templates, no dynamic flag is issued, and any configured flag can be submitted.
@@ -48,7 +50,6 @@ GZ::CTF is an open source CTF platform based on ASP.NET Core.
 
   - Disable or enable challenges during the competition, and release new challenges at any time.
   - Dynamic flag sharing detection, optional flag template, leet flag
-
 
 - **Teams** score timeline, scoreboard. Teams can be grouped
 - Dynamic container distribution, management, and multiple port mapping methods based on **Docker or K8s**
@@ -117,6 +118,7 @@ Some event organizers have already chosen GZCTF and successfully completed their
 - **SVUCTF-WINTER-2023: Suzhou Vocational University 2023 Winter Freshman Competition**
 - **BIEM CTF 2024：Beijing Institute Of Economics And Management - The first BIEM "Xin'an Cup" CTF competition**
 - **BUAACTF 2024: Beihang University CTF**
+- **San Diego CTF 2024: University of California, San Diego**
 
 _The list is not in any particular order, and PRs are welcome for additions._
 

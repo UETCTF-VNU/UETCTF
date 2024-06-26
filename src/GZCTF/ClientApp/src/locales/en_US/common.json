@@ -7,6 +7,7 @@
   },
   "button": {
     "copy": "Copy to Clipboard",
+    "reset": "Reset",
     "select_file": "Select File",
     "try_again": "Try Again",
     "uploading": "Uploading"
@@ -26,7 +27,7 @@
         "placeholder": "Use default color"
       },
       "palette": {
-        "description": "Color palette generated from the base color",
+        "description": "Color palette generated from the custom base color",
         "label": "Color Palette"
       },
       "provider": {
@@ -46,6 +47,7 @@
         "poster": "poster"
       }
     },
+    "external_link": "External Link",
     "home": {
       "recent_games": "Recent Games"
     },

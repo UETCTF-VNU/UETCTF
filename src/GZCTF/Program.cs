@@ -3,7 +3,9 @@ global using GZCTF.Utils;
 global using AppDbContext = GZCTF.Models.AppDbContext;
 global using TaskStatus = GZCTF.Utils.TaskStatus;
 using System.Globalization;
+using System.Net.Mime;
 using System.Reflection;
+using System.Security.Cryptography;
 using System.Text;
 using GZCTF.Extensions;
 using GZCTF.Hubs;
@@ -13,8 +15,9 @@ using GZCTF.Repositories;
 using GZCTF.Repositories.Interface;
 using GZCTF.Services;
 using GZCTF.Services.Cache;
+using GZCTF.Services.Config;
 using GZCTF.Services.Container;
-using GZCTF.Services.Interface;
+using GZCTF.Services.Mail;
 using Microsoft.AspNetCore.DataProtection;
 using Microsoft.AspNetCore.HttpOverrides;
 using Microsoft.AspNetCore.Identity;
@@ -98,7 +101,6 @@ else
 #region Configuration
 
 if (!GZCTF.Program.IsTesting)
-{
     try
     {
         builder.Configuration.AddEntityConfiguration(options =>
@@ -118,7 +120,6 @@ if (!GZCTF.Program.IsTesting)
         GZCTF.Program.ExitWithFatalMessage(
             GZCTF.Program.StaticLocalizer[nameof(GZCTF.Resources.Program.Database_ConnectionFailed), e.Message]);
     }
-}
 
 #endregion Configuration
 
@@ -264,7 +265,12 @@ builder.Services.AddResponseCompression(options =>
     options.Providers.Add<BrotliCompressionProvider>();
     options.Providers.Add<GzipCompressionProvider>();
     options.MimeTypes = ResponseCompressionDefaults.MimeTypes.Concat(
-        ["application/json", "text/javascript", "text/html", "text/css"]
+        [
+            MediaTypeNames.Application.Json,
+            MediaTypeNames.Text.Html,
+            MediaTypeNames.Text.JavaScript,
+            MediaTypeNames.Text.Css
+        ]
     );
 });
 
@@ -291,6 +297,7 @@ app.UseRequestLocalization();
 
 app.UseResponseCompression();
 
+app.UseCustomFavicon();
 app.UseStaticFiles(new StaticFileOptions
 {
     OnPrepareResponse = ctx =>
@@ -318,11 +325,11 @@ else
 
 app.UseRouting();
 
-app.UseAuthentication();
-app.UseAuthorization();
-
 if (app.Configuration.GetValue<bool>("DisableRateLimit") is not true)
     app.UseRateLimiter();
+
+app.UseAuthentication();
+app.UseAuthorization();
 
 if (app.Environment.IsDevelopment() || app.Configuration.GetValue<bool>("RequestLogging"))
     app.UseRequestLogging();
@@ -338,7 +345,7 @@ app.MapHub<UserHub>("/hub/user");
 app.MapHub<MonitorHub>("/hub/monitor");
 app.MapHub<AdminHub>("/hub/admin");
 
-app.MapFallbackToFile("index.html");
+await app.UseIndexAsync();
 
 #endregion Middlewares
 
@@ -367,10 +374,24 @@ namespace GZCTF
 {
     public class Program
     {
+        static Program()
+        {
+            using Stream stream = typeof(Program).Assembly
+                .GetManifestResourceStream("GZCTF.Resources.favicon.webp")!;
+            DefaultFavicon = new byte[stream.Length];
+
+            stream.ReadExactly(DefaultFavicon);
+            DefaultFaviconHash = BitConverter.ToString(SHA256.HashData(DefaultFavicon))
+                .Replace("-", "").ToLowerInvariant();
+        }
+
         public static bool IsTesting { get; set; }
 
         internal static IStringLocalizer<Program> StaticLocalizer { get; } =
             new CulturedLocalizer<Program>(CultureInfo.CurrentCulture);
+
+        internal static byte[] DefaultFavicon { get; }
+        internal static string DefaultFaviconHash { get; }
 
         internal static void Banner()
         {
@@ -411,7 +432,7 @@ namespace GZCTF
             var localizer = context.HttpContext.RequestServices.GetRequiredService<IStringLocalizer<Program>>();
             if (context.ModelState.ErrorCount <= 0)
                 return new JsonResult(new RequestResponse(
-                        localizer[nameof(Resources.Program.Model_ValidationFailed)]))
+                    localizer[nameof(Resources.Program.Model_ValidationFailed)]))
                 { StatusCode = 400 };
 
             var error = context.ModelState.Values.Where(v => v.Errors.Count > 0)

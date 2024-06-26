@@ -14,11 +14,13 @@ import { showNotification } from '@mantine/notifications'
 import { mdiArrowLeftBold, mdiArrowRightBold, mdiCheck, mdiClose } from '@mdi/js'
 import { Icon } from '@mdi/react'
 import * as signalR from '@microsoft/signalr'
+import cx from 'clsx'
 import dayjs from 'dayjs'
 import React, { FC, useEffect, useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import AdminPage from '@Components/admin/AdminPage'
 import { TaskStatusColorMap } from '@Utils/Shared'
+import { useDisplayInputStyles } from '@Utils/ThemeOverride'
 import api, { LogMessageModel, TaskStatus } from '@Api'
 import tableClasses from '@Styles/Table.module.css'
 
@@ -42,6 +44,7 @@ const Logs: FC = () => {
 
   const { t } = useTranslation()
   const viewport = useRef<HTMLDivElement>(null)
+  const { classes: inputClasses } = useDisplayInputStyles({ fw: 500, ff: 'monospace' })
 
   useEffect(() => {
     viewport.current?.scrollTo({ top: 0, behavior: 'smooth' })
@@ -124,17 +127,21 @@ const Logs: FC = () => {
             : undefined
         }
       >
-        <Table.Td ff="monospace">
+        <Table.Td>
           <Badge size="sm" color="indigo">
             {dayjs(item.time).format('MM/DD HH:mm:ss')}
           </Badge>
         </Table.Td>
-        <Table.Td ff="monospace">
-          <Text ff="monospace" size="sm" fw={300}>
-            {item.ip || 'localhost'}
-          </Text>
+        <Table.Td>
+          <Input
+            variant="unstyled"
+            value={item.ip || ''}
+            readOnly
+            size="sm"
+            classNames={inputClasses}
+          />
         </Table.Td>
-        <Table.Td ff="monospace">
+        <Table.Td>
           <Text ff="monospace" size="sm" fw="bold" lineClamp={1}>
             {item.name}
           </Text>
@@ -200,11 +207,11 @@ const Logs: FC = () => {
           scrollbarSize={4}
           h="calc(100vh - 190px)"
         >
-          <Table className={`${tableClasses.table} ${tableClasses.nopadding}`}>
+          <Table className={cx(tableClasses.table, tableClasses.nopadding)}>
             <Table.Thead>
               <Table.Tr>
-                <Table.Th style={{ width: '8rem' }}>{t('common.label.time')}</Table.Th>
-                <Table.Th style={{ width: '10rem' }}>{t('common.label.ip')}</Table.Th>
+                <Table.Th style={{ width: '6rem' }}>{t('common.label.time')}</Table.Th>
+                <Table.Th style={{ width: '12%' }}>{t('common.label.ip')}</Table.Th>
                 <Table.Th style={{ width: '6rem' }}>{t('common.label.user')}</Table.Th>
                 <Table.Th>{t('admin.label.logs.message')}</Table.Th>
                 <Table.Th style={{ width: '3rem' }}>{t('admin.label.logs.status')}</Table.Th>

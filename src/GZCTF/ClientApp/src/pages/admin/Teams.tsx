@@ -162,7 +162,7 @@ const Teams: FC = () => {
       head={
         <>
           <TextInput
-            w="30%"
+            w="36%"
             leftSection={<Icon path={mdiMagnify} size={1} />}
             placeholder={t('admin.placeholder.teams.search')}
             value={hint}
@@ -283,7 +283,17 @@ const Teams: FC = () => {
                                 </Tooltip>
                               ))}
                             {members && members.length > 8 && (
-                              <Tooltip label={<Text>{members.slice(8).join(',')}</Text>} withArrow>
+                              <Tooltip
+                                label={
+                                  <Text>
+                                    {members
+                                      .slice(8)
+                                      .map((o) => o.userName)
+                                      .join(',')}
+                                  </Text>
+                                }
+                                withArrow
+                              >
                                 <Avatar alt="avatar" radius="xl">
                                   +{members.length - 8}
                                 </Avatar>

@@ -18,7 +18,7 @@ import {
   Tooltip,
   useMantineTheme,
 } from '@mantine/core'
-import { Dropzone, IMAGE_MIME_TYPE } from '@mantine/dropzone'
+import { Dropzone } from '@mantine/dropzone'
 import { useClipboard } from '@mantine/hooks'
 import { useModals } from '@mantine/modals'
 import { notifications, showNotification, updateNotification } from '@mantine/notifications'
@@ -27,6 +27,7 @@ import { Icon } from '@mdi/react'
 import { FC, useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { showErrorNotification, tryGetErrorMsg } from '@Utils/ApiHelper'
+import { IMAGE_MIME_TYPES } from '@Utils/Shared'
 import api, { TeamInfoModel, TeamUserInfoModel } from '@Api'
 
 interface TeamEditModalProps extends ModalProps {
@@ -176,8 +177,10 @@ const TeamEditModal: FC<TeamEditModalProps> = (props) => {
   }
 
   const onConfirmKickUser = (userId: string) => {
+    if (!teamInfo?.id || !isCaptain) return
+
     api.team
-      .teamKickUser(teamInfo?.id!, userId)
+      .teamKickUser(teamInfo.id, userId)
       .then((data) => {
         showNotification({
           color: 'teal',
@@ -197,10 +200,10 @@ const TeamEditModal: FC<TeamEditModalProps> = (props) => {
   }
 
   const onRefreshInviteCode = () => {
-    if (!inviteCode) return
+    if (!inviteCode || !team?.id) return
 
     api.team
-      .teamUpdateInviteToken(team?.id!)
+      .teamUpdateInviteToken(team.id)
       .then((data) => {
         setInviteCode(data.data)
         showNotification({
@@ -467,7 +470,7 @@ const TeamEditModal: FC<TeamEditModalProps> = (props) => {
           mih={220}
           disabled={disabled}
           maxSize={3 * 1024 * 1024}
-          accept={IMAGE_MIME_TYPE}
+          accept={IMAGE_MIME_TYPES}
         >
           <Group justify="center" gap="xl" mih={240} style={{ pointerEvents: 'none' }}>
             {avatarFile ? (

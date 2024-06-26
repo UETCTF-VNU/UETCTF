@@ -6,10 +6,11 @@ using Microsoft.EntityFrameworkCore.Storage;
 
 namespace GZCTF.Repositories;
 
-public class GameChallengeRepository(AppDbContext context,
+public class GameChallengeRepository(
+    AppDbContext context,
     IFileRepository fileRepository,
     CacheHelper cacheHelper
-    ) : RepositoryBase(context),
+) : RepositoryBase(context),
     IGameChallengeRepository
 {
     public async Task AddFlags(GameChallenge challenge, FlagCreateModel[] models, CancellationToken token = default)
@@ -98,7 +99,7 @@ public class GameChallengeRepository(AppDbContext context,
 
         try
         {
-            foreach (int cId in await Context.GameChallenges.IgnoreAutoIncludes()
+            foreach (var cId in await Context.GameChallenges.IgnoreAutoIncludes()
                          .Where(c => c.GameId == game.Id)
                          .Select(c => c.Id)
                          .ToArrayAsync(token))
@@ -110,7 +111,7 @@ public class GameChallengeRepository(AppDbContext context,
                                 i.Participation.Status == ParticipationStatus.Accepted)
                     .CountAsync(token);
 
-                var chal = await Context.GameChallenges.IgnoreAutoIncludes()
+                GameChallenge chal = await Context.GameChallenges.IgnoreAutoIncludes()
                     .SingleAsync(c => c.Id == cId, token);
 
                 if (chal.AcceptedCount == count)

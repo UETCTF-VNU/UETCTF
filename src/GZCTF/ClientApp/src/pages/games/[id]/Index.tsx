@@ -20,9 +20,9 @@ import { Icon } from '@mdi/react'
 import { FC, useEffect, useState } from 'react'
 import { Trans, useTranslation } from 'react-i18next'
 import { Link, useNavigate, useParams } from 'react-router-dom'
-import CustomProgress from '@Components/CustomProgress'
 import GameJoinModal from '@Components/GameJoinModal'
-import MarkdownRender from '@Components/MarkdownRender'
+import GameProgress from '@Components/GameProgress'
+import Markdown from '@Components/MarkdownRenderer'
 import WithNavBar from '@Components/WithNavbar'
 import { showErrorNotification } from '@Utils/ApiHelper'
 import { useLanguage } from '@Utils/I18n'
@@ -274,7 +274,7 @@ const GameDetail: FC = () => {
                 </Text>
               </Stack>
             </Group>
-            <CustomProgress percentage={progress} />
+            <GameProgress percentage={progress} />
             <Group>{ControlButtons}</Group>
           </Stack>
           <BackgroundImage className={classes.banner} src={game?.poster ?? ''} radius="sm">
@@ -316,7 +316,7 @@ const GameDetail: FC = () => {
               {isMobile && t('game.participation.alert.not_started.mobile')}
             </Alert>
           )}
-          <MarkdownRender source={game?.content ?? ''} />
+          <Markdown source={game?.content ?? ''} />
         </Stack>
         <GameJoinModal
           title={t('game.content.join.title')}

@@ -15,6 +15,16 @@ public class CacheHelper(ChannelWriter<CacheRequest> channelWriter)
 public static class CacheKey
 {
     /// <summary>
+    /// Favicon 缓存标识
+    /// </summary>
+    public const string Favicon = "_Favicon";
+
+    /// <summary>
+    /// 主页缓存标识
+    /// </summary>
+    public const string Index = "_Index";
+
+    /// <summary>
     /// 积分榜缓存根标识
     /// </summary>
     public const string ScoreBoardBase = "_ScoreBoard";

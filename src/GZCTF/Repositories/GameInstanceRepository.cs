@@ -1,6 +1,6 @@
 ﻿using GZCTF.Models.Internal;
 using GZCTF.Repositories.Interface;
-using GZCTF.Services.Interface;
+using GZCTF.Services.Container.Manager;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Storage;
 using Microsoft.Extensions.Localization;
@@ -36,18 +36,18 @@ public class GameInstanceRepository(
             return null;
         }
 
-        if (instance.IsLoaded)
-        {
-            await transaction.CommitAsync(token);
-            return instance;
-        }
-
         GameChallenge challenge = instance.Challenge;
 
         if (!challenge.IsEnabled)
         {
             await transaction.CommitAsync(token);
             return null;
+        }
+
+        if (instance.IsLoaded)
+        {
+            await transaction.CommitAsync(token);
+            return instance;
         }
 
         try
@@ -67,27 +67,25 @@ public class GameInstanceRepository(
                     };
                     break;
                 case ChallengeType.DynamicAttachment:
+                    var flags = await Context.FlagContexts
+                        .Where(e => e.Challenge == challenge && !e.IsOccupied)
+                        .ToListAsync(token);
+
+                    if (flags.Count == 0)
                     {
-                        List<FlagContext> flags = await Context.FlagContexts
-                            .Where(e => e.Challenge == challenge && !e.IsOccupied)
-                            .ToListAsync(token);
-
-                        if (flags.Count == 0)
-                        {
-                            logger.SystemLog(
-                                Program.StaticLocalizer[nameof(Resources.Program.InstanceRepository_DynamicFlagsNotEnough),
-                                    challenge.Title,
-                                    challenge.Id], TaskStatus.Failed,
-                                LogLevel.Warning);
-                            return null;
-                        }
-
-                        var pos = Random.Shared.Next(flags.Count);
-                        flags[pos].IsOccupied = true;
-
-                        instance.FlagId = flags[pos].Id;
-                        break;
+                        logger.SystemLog(
+                            Program.StaticLocalizer[nameof(Resources.Program.InstanceRepository_DynamicFlagsNotEnough),
+                                challenge.Title,
+                                challenge.Id], TaskStatus.Failed,
+                            LogLevel.Warning);
+                        return null;
                     }
+
+                    var pos = Random.Shared.Next(flags.Count);
+                    flags[pos].IsOccupied = true;
+
+                    instance.FlagId = flags[pos].Id;
+                    break;
             }
 
             // instance.FlagContext is null by default
@@ -163,6 +161,7 @@ public class GameInstanceRepository(
         {
             TeamId = team.Id.ToString(),
             UserId = user.Id,
+            ChallengeId = gameInstance.ChallengeId,
             Flag = gameInstance.FlagContext?.Flag, // static challenge has no specific flag
             Image = gameInstance.Challenge.ContainerImage,
             CPUCount = gameInstance.Challenge.CPUCount ?? 1,

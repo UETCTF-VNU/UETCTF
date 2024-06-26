@@ -1,4 +1,6 @@
-﻿namespace GZCTF.Services.Interface;
+﻿using ConfigModel = GZCTF.Models.Data.Config;
+
+namespace GZCTF.Services.Config;
 
 public interface IConfigService
 {
@@ -19,6 +21,13 @@ public interface IConfigService
     /// <param name="token"></param>
     /// <returns></returns>
     public Task SaveConfig(Type type, object? value, CancellationToken token = default);
+
+    /// <summary>
+    /// 保存配置键值对
+    /// </summary>
+    /// <param name="configs">键值对</param>
+    /// <param name="token"></param>
+    public Task SaveConfigSet(HashSet<ConfigModel> configs, CancellationToken token = default);
 
     /// <summary>
     /// 重载配置

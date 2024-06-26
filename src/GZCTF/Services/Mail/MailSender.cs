@@ -2,14 +2,13 @@
 using System.Net.Security;
 using System.Text;
 using GZCTF.Models.Internal;
-using GZCTF.Services.Interface;
 using MailKit.Net.Smtp;
 using Microsoft.Extensions.Localization;
 using Microsoft.Extensions.Options;
 using MimeKit;
 using MimeKit.Text;
 
-namespace GZCTF.Services;
+namespace GZCTF.Services.Mail;
 
 public sealed class MailSender : IMailSender, IDisposable
 {
@@ -268,5 +267,5 @@ public class MailContent(
     /// <summary>
     /// 平台名称
     /// </summary>
-    public string Platform { get; } = $"{globalConfig.Value.Title}::CTF";
+    public string Platform { get; } = globalConfig.Value.Platform;
 }

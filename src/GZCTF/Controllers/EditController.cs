@@ -6,7 +6,7 @@ using GZCTF.Models.Request.Game;
 using GZCTF.Models.Request.Info;
 using GZCTF.Repositories.Interface;
 using GZCTF.Services.Cache;
-using GZCTF.Services.Interface;
+using GZCTF.Services.Container.Manager;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Localization;
@@ -656,6 +656,7 @@ public class EditController(
             {
                 TeamId = "admin",
                 UserId = user!.Id,
+                ChallengeId = challenge.Id,
                 Flag = challenge.Type.IsDynamic() ? challenge.GenerateTestFlag() : null,
                 Image = challenge.ContainerImage,
                 CPUCount = challenge.CPUCount ?? 1,

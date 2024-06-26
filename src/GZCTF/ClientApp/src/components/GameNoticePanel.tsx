@@ -18,9 +18,10 @@ import { FC, useEffect, useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useParams } from 'react-router-dom'
 import Empty from '@Components/Empty'
-import { InlineMarkdownRender } from '@Components/MarkdownRender'
+import { InlineMarkdown } from '@Components/MarkdownRenderer'
 import { NoticTypeIconMap } from '@Utils/Shared'
 import api, { GameNotice, NoticeType } from '@Api'
+import typoClasses from '@Styles/Typography.module.css'
 
 enum NoticeFilter {
   All = 'all',
@@ -86,6 +87,8 @@ const formatNotice = (t: TFunction, notice: GameNotice) => {
   }
 }
 
+const PANEL_HEIGHT = 'calc(100vh - 25rem)'
+
 const GameNoticePanel: FC = () => {
   const { id } = useParams()
   const numId = parseInt(id ?? '-1')
@@ -113,7 +116,7 @@ const GameNoticePanel: FC = () => {
           icon: <Icon path={mdiClose} size={1} />,
         })
       })
-  }, [numId])
+  }, [numId, t])
 
   useEffect(() => {
     newNotices.current = []
@@ -163,7 +166,7 @@ const GameNoticePanel: FC = () => {
         })
       }
     }
-  }, [])
+  })
 
   const allNotices = [...newNotices.current, ...(notices ?? [])]
   const filteredNotices = ApplyFilter(allNotices, filter)
@@ -175,13 +178,18 @@ const GameNoticePanel: FC = () => {
   )
 
   return (
-    <Card shadow="sm" w="20rem">
+    <Card shadow="sm" w="100%">
       <Stack gap="xs">
         <SegmentedControl
           value={filter}
+          color={theme.primaryColor}
+          fullWidth
           styles={{
             root: {
               background: 'transparent',
+            },
+            label: {
+              fontWeight: 500,
             },
           }}
           onChange={(value) => setFilter(value as NoticeFilter)}
@@ -193,31 +201,37 @@ const GameNoticePanel: FC = () => {
           ]}
         />
         {filteredNotices.length ? (
-          <ScrollArea offsetScrollbars scrollbarSize={0} h="calc(100vh - 25rem)">
+          <ScrollArea offsetScrollbars scrollbarSize={0} h={PANEL_HEIGHT}>
             <List size="sm" spacing={3}>
               {filteredNotices.map((notice) => (
                 <List.Item
                   key={notice.id}
-                  icon={iconMap.get(notice.type)}
+                  icon={<Icon {...iconMap.get(notice.type)!} />}
                   styles={{ itemWrapper: { alignItems: 'normal' } }}
                 >
                   <Stack gap={1}>
                     <Text fz="xs" fw="bold" c="dimmed">
                       {dayjs(notice.time).format('YY/MM/DD HH:mm:ss')}
                     </Text>
-                    <InlineMarkdownRender
-                      fz="sm"
-                      fw={500}
-                      c="dimmed"
-                      source={formatNotice(t, notice)}
-                    />
+                    {notice.type === NoticeType.Normal ? (
+                      <InlineMarkdown
+                        fz="sm"
+                        fw={500}
+                        c="dimmed"
+                        source={formatNotice(t, notice)}
+                      />
+                    ) : (
+                      <Text fz="sm" fw={500} c="dimmed" className={typoClasses.inline}>
+                        {formatNotice(t, notice)}
+                      </Text>
+                    )}
                   </Stack>
                 </List.Item>
               ))}
             </List>
           </ScrollArea>
         ) : (
-          <Center h="calc(100vh - 25rem)">
+          <Center h={PANEL_HEIGHT}>
             <Empty description={t('game.content.no_notice')} />
           </Center>
         )}

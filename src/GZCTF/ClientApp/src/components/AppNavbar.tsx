@@ -2,7 +2,6 @@ import {
   ActionIcon,
   AppShell,
   Avatar,
-  Center,
   Menu,
   MenuDivider,
   Stack,
@@ -29,8 +28,8 @@ import { Icon } from '@mdi/react'
 import React, { FC, useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
+import LogoBox from '@Components/LogoBox'
 import { AppControlProps } from '@Components/WithNavbar'
-import MainIcon from '@Components/icon/MainIcon'
 import { LanguageMap, SupportedLanguages, useLanguage } from '@Utils/I18n'
 import { clearLocalCache } from '@Utils/useConfig'
 import { useLogOut, useUser } from '@Utils/useUser'
@@ -110,7 +109,7 @@ const AppNavbar: FC<AppControlProps> = ({ openColorModal }) => {
 
   const links = items
     .filter((m) => !m.admin || user?.role === Role.Admin)
-    .map((link) => <NavbarLink {...link} key={link.label} isActive={link.label === active} />)
+    .map((link) => <NavbarLink key={link.label} {...link} isActive={link.label === active} />)
 
   const loggedIn = user && !error
 
@@ -118,9 +117,7 @@ const AppNavbar: FC<AppControlProps> = ({ openColorModal }) => {
     <AppShell.Navbar className={classes.navbar}>
       {/* Logo */}
       <AppShell.Section grow>
-        <Center>
-          <MainIcon ignoreTheme className={classes.logo} onClick={() => navigate('/')} />
-        </Center>
+        <LogoBox ignoreTheme size="100%" className={classes.logo} onClick={() => navigate('/')} />
       </AppShell.Section>
 
       {/* Common Nav */}

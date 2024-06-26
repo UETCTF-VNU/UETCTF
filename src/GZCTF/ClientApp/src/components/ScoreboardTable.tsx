@@ -16,6 +16,7 @@ import {
   useMantineTheme,
 } from '@mantine/core'
 import { Icon } from '@mdi/react'
+import cx from 'clsx'
 import dayjs from 'dayjs'
 import React, { FC, useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
@@ -27,6 +28,7 @@ import {
   useChallengeTagLabelMap,
   SubmissionTypeIconMap,
   useBonusLabels,
+  PartialIconProps,
 } from '@Utils/Shared'
 import { useGameScoreboard } from '@Utils/useGame'
 import { ChallengeInfo, ChallengeTag, ScoreboardItem, SubmissionType } from '@Api'
@@ -111,7 +113,7 @@ const TableHeader = (table: Record<string, ChallengeInfo[]>) => {
         ].map((header, idx) => (
           <Table.Th
             key={idx}
-            className={`${classes.left} ${classes.header}`}
+            className={cx(classes.left, classes.header)}
             style={{ left: Lefts[idx] }}
           >
             {header}
@@ -134,7 +136,7 @@ const TableRow: FC<{
   allRank: boolean
   tableRank: number
   onOpenDetail: () => void
-  iconMap: Map<SubmissionType, React.ReactNode>
+  iconMap: Map<SubmissionType, PartialIconProps | undefined>
   challenges?: Record<string, ChallengeInfo[]>
 }> = ({ item, challenges, onOpenDetail, iconMap, tableRank, allRank }) => {
   const theme = useMantineTheme()
@@ -143,10 +145,10 @@ const TableRow: FC<{
 
   return (
     <Table.Tr>
-      <Table.Td className={`${classes.mono} ${classes.left}`} style={{ left: Lefts[0] }}>
+      <Table.Td className={cx(classes.mono, classes.left)} style={{ left: Lefts[0] }}>
         {item.rank}
       </Table.Td>
-      <Table.Td className={`${classes.mono} ${classes.left}`} style={{ left: Lefts[1] }}>
+      <Table.Td className={cx(classes.mono, classes.left)} style={{ left: Lefts[1] }}>
         {allRank ? item.rank : item.organizationRank ?? tableRank}
       </Table.Td>
       <Table.Td className={classes.left} style={{ left: Lefts[2] }}>
@@ -174,10 +176,10 @@ const TableRow: FC<{
           />
         </Group>
       </Table.Td>
-      <Table.Td className={`${classes.mono} ${classes.left}`} style={{ left: Lefts[3] }}>
+      <Table.Td className={cx(classes.mono, classes.left)} style={{ left: Lefts[3] }}>
         {solved?.length}
       </Table.Td>
-      <Table.Td className={`${classes.mono} ${classes.left}`} style={{ left: Lefts[4] }}>
+      <Table.Td className={cx(classes.mono, classes.left)} style={{ left: Lefts[4] }}>
         {solved?.reduce((acc, cur) => acc + (cur?.score ?? 0), 0)}
       </Table.Td>
       {challenges &&
@@ -209,7 +211,9 @@ const TableRow: FC<{
                     </Stack>
                   }
                 >
-                  <Center>{icon}</Center>
+                  <Center>
+                    <Icon {...icon} />
+                  </Center>
                 </Tooltip>
               </Table.Td>
             )
@@ -327,7 +331,7 @@ const ScoreboardTable: FC<ScoreboardProps> = ({ organization, setOrganization })
                       transitionProps={{ transition: 'pop' }}
                     >
                       <Group justify="left" gap={2}>
-                        {iconMap.get(type)}
+                        <Icon {...iconMap.get(type)!} />
                         <Text>{bloodData.get(type)?.descr}</Text>
                       </Group>
                     </Tooltip>

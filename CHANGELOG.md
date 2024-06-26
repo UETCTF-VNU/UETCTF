@@ -3,6 +3,132 @@
 All notable changes to [**GZCTF**](https://github.com/GZTimeWalker/GZCTF) will be documented in this file.
 
 ---
+## [0.20.8](https://github.com/GZTimeWalker/GZCTF/compare/v0.20.7-patch.1..v0.20.8) - 2024-06-13
+
+### ⛰️ Features
+
+- **(frontend)** upgrade marked to v13 with custom extension - ([43f908](https://github.com/GZTimeWalker/GZCTF/commit/43f908)) by **GZTime**
+
+### 🐛 Bug Fixes
+
+- **(frontend)** unexpected indentation in markdown render (#304) - ([0861e7](https://github.com/GZTimeWalker/GZCTF/commit/0861e7)) by **埃拉**
+- **(game)** access to disabled challenges - ([440e15](https://github.com/GZTimeWalker/GZCTF/commit/440e15)) by **GZTime**
+- overflow for some challenges - ([6b44ef](https://github.com/GZTimeWalker/GZCTF/commit/6b44ef)) by **GZTime**
+
+---
+## [0.20.7-patch.1](https://github.com/GZTimeWalker/GZCTF/compare/v0.20.7..v0.20.7-patch.1) - 2024-06-08
+
+### ⛰️ Features
+
+- show `external link` for remote attachment - ([2082c5](https://github.com/GZTimeWalker/GZCTF/commit/2082c5)) by **GZTime**
+
+---
+## [0.20.7](https://github.com/GZTimeWalker/GZCTF/compare/v0.20.6-patch.1..v0.20.7) - 2024-06-07
+
+### ⛰️ Features
+
+- **(frontend)** redesigned challenge modal - ([cbedf8](https://github.com/GZTimeWalker/GZCTF/commit/cbedf8)) by **GZTime**
+- add more labels for container - ([817abd](https://github.com/GZTimeWalker/GZCTF/commit/817abd)) by **GZTime**
+
+### 🐛 Bug Fixes
+
+- **(frontend)** incorrect icon map - ([704d36](https://github.com/GZTimeWalker/GZCTF/commit/704d36)) by **GZTime**
+
+---
+## [0.20.6-patch.1](https://github.com/GZTimeWalker/GZCTF/compare/v0.20.6..v0.20.6-patch.1) - 2024-06-03
+
+### 🐛 Bug Fixes
+
+- allow `blob:` for `img-src` - ([32a0d7](https://github.com/GZTimeWalker/GZCTF/commit/32a0d7)) by **GZTime**
+
+---
+## [0.20.6](https://github.com/GZTimeWalker/GZCTF/compare/v0.20.5..v0.20.6) - 2024-06-02
+
+### ⛰️ Features
+
+- support docker basic auth - ([12418d](https://github.com/GZTimeWalker/GZCTF/commit/12418d)) by **GZTime**
+- darken pdf in dark mode - ([418343](https://github.com/GZTimeWalker/GZCTF/commit/418343)) by **GZTime**
+
+### 🎨 Styling
+
+- challenge page - ([a8254e](https://github.com/GZTimeWalker/GZCTF/commit/a8254e)) by **GZTime**
+
+---
+## [0.20.5](https://github.com/GZTimeWalker/GZCTF/compare/v0.20.4..v0.20.5) - 2024-05-22
+
+### ⛰️ Features
+
+- **(experimental)** use nonce for csp - ([c42255](https://github.com/GZTimeWalker/GZCTF/commit/c42255)) by **GZTime**
+- **(security)** Initial content security policy - ([02d9e2](https://github.com/GZTimeWalker/GZCTF/commit/02d9e2)) by **GZTime**
+- remove size limit of form and multipart-form - ([e1294e](https://github.com/GZTimeWalker/GZCTF/commit/e1294e)) by **Steven He**
+
+---
+## [0.20.4](https://github.com/GZTimeWalker/GZCTF/compare/v0.20.3..v0.20.4) - 2024-05-17
+
+### 🐛 Bug Fixes
+
+- **(config)** cache not flush - ([811b73](https://github.com/GZTimeWalker/GZCTF/commit/811b73)) by **GZTime**
+- **(style)** `LoadingOverlay` with wrong props - ([8ce788](https://github.com/GZTimeWalker/GZCTF/commit/8ce788)) by **GZTime**
+
+### 🎨 Styling
+
+- use primary color for Icon Tabs - ([0f9071](https://github.com/GZTimeWalker/GZCTF/commit/0f9071)) by **GZTime**
+
+---
+## [0.20.3](https://github.com/GZTimeWalker/GZCTF/compare/v0.20.2..v0.20.3) - 2024-05-13
+
+### ⛰️ Features
+
+- **(experimental)** remove lock check for joining team - ([c9b814](https://github.com/GZTimeWalker/GZCTF/commit/c9b814)) by **GZTime**
+- add `og:image` property to index - ([451328](https://github.com/GZTimeWalker/GZCTF/commit/451328)) by **GZTime**
+- custom title & description for SEO - ([29bc1f](https://github.com/GZTimeWalker/GZCTF/commit/29bc1f)) by **GZTime**
+
+### 🐛 Bug Fixes
+
+- **(config)** flush index cache at launch - ([6894db](https://github.com/GZTimeWalker/GZCTF/commit/6894db)) by **GZTime**
+- **(config)** cache won't flush when config add - ([0dab8f](https://github.com/GZTimeWalker/GZCTF/commit/0dab8f)) by **GZTime**
+- **(frontend)** confirm modal after saving post - ([509c8a](https://github.com/GZTimeWalker/GZCTF/commit/509c8a)) by **GZTime**
+- **(style)** name overflow on instances page - ([289922](https://github.com/GZTimeWalker/GZCTF/commit/289922)) by **GZTime**
+- correctly join usernames (#294) - ([06229c](https://github.com/GZTimeWalker/GZCTF/commit/06229c)) by **Light**
+
+---
+## [0.20.2](https://github.com/GZTimeWalker/GZCTF/compare/v0.20.1..v0.20.2) - 2024-05-12
+
+### ⛰️ Features
+
+- custom logo - ([26f774](https://github.com/GZTimeWalker/GZCTF/commit/26f774)) by **Steven He**
+
+### 🐛 Bug Fixes
+
+- **(style)** wrong light dark use for review page - ([7b8930](https://github.com/GZTimeWalker/GZCTF/commit/7b8930)) by **GZTime**
+- **(style)** progress pulse as unexpected - ([728cff](https://github.com/GZTimeWalker/GZCTF/commit/728cff)) by **GZTime**
+- **(style)** icon color - ([6171a8](https://github.com/GZTimeWalker/GZCTF/commit/6171a8)) by **GZTime**
+- remove svg (again) from image mime types - ([df449b](https://github.com/GZTimeWalker/GZCTF/commit/df449b)) by **GZTime**
+
+---
+## [0.20.1](https://github.com/GZTimeWalker/GZCTF/compare/v0.20.0..v0.20.1) - 2024-05-11
+
+### ⛰️ Features
+
+- **(i18n)** switch language on mobile - ([e6ff33](https://github.com/GZTimeWalker/GZCTF/commit/e6ff33)) by **GZTime**
+- **(style)** use more css modules - ([04cd3e](https://github.com/GZTimeWalker/GZCTF/commit/04cd3e)) by **GZTime**
+- control frontend color on client - ([fc3e8b](https://github.com/GZTimeWalker/GZCTF/commit/fc3e8b)) by **GZTime**
+- custom theme color for frontend - ([d45f6d](https://github.com/GZTimeWalker/GZCTF/commit/d45f6d)) by **GZTime**
+- add global `ErrorBoundary` - ([55e610](https://github.com/GZTimeWalker/GZCTF/commit/55e610)) by **GZTime**
+
+### 🐛 Bug Fixes
+
+- **(notification)** container destory notification - ([5448ad](https://github.com/GZTimeWalker/GZCTF/commit/5448ad)) by **GZTime**
+- **(security)** html injection by team name - ([31e775](https://github.com/GZTimeWalker/GZCTF/commit/31e775)) by **GZTime**
+- **(style)** tooltip & font size in navbar - ([7d2b2b](https://github.com/GZTimeWalker/GZCTF/commit/7d2b2b)) by **GZTime**
+- **(style)** mobile post card - ([4f0a15](https://github.com/GZTimeWalker/GZCTF/commit/4f0a15)) by **GZTime**
+- **(style)** pinned post card - ([d9b8b8](https://github.com/GZTimeWalker/GZCTF/commit/d9b8b8)) by **GZTime**
+- **(style)** sticky header - ([d495c1](https://github.com/GZTimeWalker/GZCTF/commit/d495c1)) by **GZTime**
+- **(style)** notifications never close - ([219c60](https://github.com/GZTimeWalker/GZCTF/commit/219c60)) by **GZTime**
+- some global config will be clear when save color - ([c547bb](https://github.com/GZTimeWalker/GZCTF/commit/c547bb)) by **GZTime**
+- custom theme cannot be set properly - ([725b3a](https://github.com/GZTimeWalker/GZCTF/commit/725b3a)) by **GZTime**
+
+---
 ## [0.20.0](https://github.com/GZTimeWalker/GZCTF/compare/v0.19.4..v0.20.0) - 2024-05-08
 
 ### ⛰️ Features
@@ -15,7 +141,14 @@ All notable changes to [**GZCTF**](https://github.com/GZTimeWalker/GZCTF) will b
 ### 🐛 Bug Fixes
 
 - **(i18n)** set `lang` attr in `html` - ([9d8b39](https://github.com/GZTimeWalker/GZCTF/commit/9d8b39)) by **GZTime**
+- **(style)** review page - ([d6bf73](https://github.com/GZTimeWalker/GZCTF/commit/d6bf73)) by **GZTime**
+- **(style)** blinking underline - ([e88bc5](https://github.com/GZTimeWalker/GZCTF/commit/e88bc5)) by **GZTime**
+- **(style)** some style issue - ([26ca2c](https://github.com/GZTimeWalker/GZCTF/commit/26ca2c)) by **GZTime**
 - **(style)** footer color use css var - ([aafbf2](https://github.com/GZTimeWalker/GZCTF/commit/aafbf2)) by **GZTime**
+
+### 🎨 Styling
+
+- use tootip for blood legend - ([f05f13](https://github.com/GZTimeWalker/GZCTF/commit/f05f13)) by **GZTime**
 
 ---
 ## [0.19.4](https://github.com/GZTimeWalker/GZCTF/compare/v0.19.3..v0.19.4) - 2024-05-03
@@ -44,13 +177,6 @@ All notable changes to [**GZCTF**](https://github.com/GZTimeWalker/GZCTF) will b
 - check isEnabled when creating the container - ([de747e](https://github.com/GZTimeWalker/GZCTF/commit/de747e)) by **GZTime**
 - handle deletion exceptions - ([d62554](https://github.com/GZTimeWalker/GZCTF/commit/d62554)) by **GZTime**
 
-### ⚙️ Miscellaneous Tasks
-
-- rename i18n key `Game_End` to `Game_Ended` - ([9dace0](https://github.com/GZTimeWalker/GZCTF/commit/9dace0)) by **GZTime**
-- tidy up - ([b45443](https://github.com/GZTimeWalker/GZCTF/commit/b45443)) by **GZTime**
-- remove dup key by crowdin - ([a092a5](https://github.com/GZTimeWalker/GZCTF/commit/a092a5)) by **GZTime**
-- add mutate for challenges - ([b032ef](https://github.com/GZTimeWalker/GZCTF/commit/b032ef)) by **GZTime**
-
 ---
 ## [0.19.3](https://github.com/GZTimeWalker/GZCTF/compare/v0.19.2..v0.19.3) - 2024-04-22
 
@@ -67,10 +193,6 @@ All notable changes to [**GZCTF**](https://github.com/GZTimeWalker/GZCTF) will b
 
 - **(backedn)** add NPOI lib - ([c4b20e](https://github.com/GZTimeWalker/GZCTF/commit/c4b20e)) by **GZTime**
 - **(deps)** route not works - ([b37720](https://github.com/GZTimeWalker/GZCTF/commit/b37720)) by **GZTime**
-
-### ⚙️ Miscellaneous Tasks
-
-- adjust watermark - ([2d046b](https://github.com/GZTimeWalker/GZCTF/commit/2d046b)) by **GZTime**
 
 ---
 ## [0.19.1](https://github.com/GZTimeWalker/GZCTF/compare/v0.19.0..v0.19.1) - 2024-04-17
@@ -121,15 +243,6 @@ All notable changes to [**GZCTF**](https://github.com/GZTimeWalker/GZCTF) will b
 
 - fix Badge padding - ([6e5e53](https://github.com/GZTimeWalker/GZCTF/commit/6e5e53)) by **GZTime**
 
-### ⚙️ Miscellaneous Tasks
-
-- update CHANGELOG - ([d9c119](https://github.com/GZTimeWalker/GZCTF/commit/d9c119)) by **GZTime**
-- add platform in mail title - ([817232](https://github.com/GZTimeWalker/GZCTF/commit/817232)) by **GZTime**
-- tidy up - ([82d624](https://github.com/GZTimeWalker/GZCTF/commit/82d624)) by **GZTime**
-- Adding comments for AsyncManualResetEvent - ([d51382](https://github.com/GZTimeWalker/GZCTF/commit/d51382)) by **Steven He**
-- bump dependencies - ([130632](https://github.com/GZTimeWalker/GZCTF/commit/130632)) by **Steven He**
-- tidy up - ([ccf056](https://github.com/GZTimeWalker/GZCTF/commit/ccf056)) by **GZTime**
-
 ### 📦 Other Changes
 
 - use alpine as base (#268) - ([4810c0](https://github.com/GZTimeWalker/GZCTF/commit/4810c0)) by **GZTime**
@@ -167,10 +280,6 @@ All notable changes to [**GZCTF**](https://github.com/GZTimeWalker/GZCTF) will b
 
 - pointer cursor when hover to link - ([7928fb](https://github.com/GZTimeWalker/GZCTF/commit/7928fb)) by **GZTime**
 
-### ⚙️ Miscellaneous Tasks
-
-- customize the GitHub Issues creation (#258) - ([039beb](https://github.com/GZTimeWalker/GZCTF/commit/039beb)) by **Aether Chen**
-
 ---
 ## [0.18.3](https://github.com/GZTimeWalker/GZCTF/compare/v0.18.2..v0.18.3) - 2024-03-25
 
@@ -192,11 +301,6 @@ All notable changes to [**GZCTF**](https://github.com/GZTimeWalker/GZCTF) will b
 ### 🎨 Styling
 
 - add missing `noWrap` for some titles - ([ec19c5](https://github.com/GZTimeWalker/GZCTF/commit/ec19c5)) by **GZTime**
-
-### ⚙️ Miscellaneous Tasks
-
-- **(trans)** update strings - ([9c5b9a](https://github.com/GZTimeWalker/GZCTF/commit/9c5b9a)) by **GZTime**
-- update ci - ([a841cb](https://github.com/GZTimeWalker/GZCTF/commit/a841cb)) by **GZTime**
 
 ---
 ## [0.18.1](https://github.com/GZTimeWalker/GZCTF/compare/v0.18.0..v0.18.1) - 2024-03-03
@@ -232,13 +336,6 @@ All notable changes to [**GZCTF**](https://github.com/GZTimeWalker/GZCTF) will b
 - remove unnecessary value - ([b5405a](https://github.com/GZTimeWalker/GZCTF/commit/b5405a)) by **GZTime**
 - remove `Model_PasswordTooShort` - ([eb5197](https://github.com/GZTimeWalker/GZCTF/commit/eb5197)) by **GZTime**
 - wrong key for `lock` in team - ([24646c](https://github.com/GZTimeWalker/GZCTF/commit/24646c)) by **GZTime**
-
-### ⚙️ Miscellaneous Tasks
-
-- **(typos)** `generate` - ([1667cf](https://github.com/GZTimeWalker/GZCTF/commit/1667cf)) by **GZTime**
-- update version string - ([0139fd](https://github.com/GZTimeWalker/GZCTF/commit/0139fd)) by **GZTime**
-- remove `ErrorMessageResourceType` to reduce code - ([2ee8e2](https://github.com/GZTimeWalker/GZCTF/commit/2ee8e2)) by **GZTime**
-- tidy up - ([490a16](https://github.com/GZTimeWalker/GZCTF/commit/490a16)) by **GZTime**
 
 ---
 ## [0.18.0-preview.1](https://github.com/GZTimeWalker/GZCTF/compare/v0.18.0-preview.0..v0.18.0-preview.1) - 2024-02-10
@@ -299,30 +396,19 @@ All notable changes to [**GZCTF**](https://github.com/GZTimeWalker/GZCTF) will b
 - std number - ([1e25cb](https://github.com/GZTimeWalker/GZCTF/commit/1e25cb)) by **GZTime**
 - disabled button when create team (#192) - ([95fb32](https://github.com/GZTimeWalker/GZCTF/commit/95fb32)) by **GZTime**
 
-### ⚙️ Miscellaneous Tasks
-
-- **(i18n)** add vscode extension recommendations - ([731604](https://github.com/GZTimeWalker/GZCTF/commit/731604)) by **Aether Chen**
-- adjust config order - ([739f17](https://github.com/GZTimeWalker/GZCTF/commit/739f17)) by **GZTime**
-- fix indents - ([936b29](https://github.com/GZTimeWalker/GZCTF/commit/936b29)) by **Steven He**
-- fix a typo - ([88ad12](https://github.com/GZTimeWalker/GZCTF/commit/88ad12)) by **Steven He**
-- Update README.ja.md - ([5be0da](https://github.com/GZTimeWalker/GZCTF/commit/5be0da)) by **Steven He**
-- Changed some terms used in Japanese README.md - ([466ac8](https://github.com/GZTimeWalker/GZCTF/commit/466ac8)) by **Steve**
-- updated some terms used by Japanese README.md - ([9c34dd](https://github.com/GZTimeWalker/GZCTF/commit/9c34dd)) by **Steve**
-- Added Japanese README - ([cffc7f](https://github.com/GZTimeWalker/GZCTF/commit/cffc7f)) by **Steve**
-- rename k8s to kubernetes - ([91a3f5](https://github.com/GZTimeWalker/GZCTF/commit/91a3f5)) by **GZTime**
-- tidy up & update Dockerfile - ([e999af](https://github.com/GZTimeWalker/GZCTF/commit/e999af)) by **GZTime**
-
 ### 📦 Other Changes
 
 - **(feat)** database sink - ([22cf84](https://github.com/GZTimeWalker/GZCTF/commit/22cf84)) by **GZTime**
 - localized request template - ([9516c6](https://github.com/GZTimeWalker/GZCTF/commit/9516c6)) by **Steven He**
 - source template fixes - ([3817f7](https://github.com/GZTimeWalker/GZCTF/commit/3817f7)) by **Steven He**
 - updated Japanese changelog - ([2f4979](https://github.com/GZTimeWalker/GZCTF/commit/2f4979)) by **Steven He**
+- Specify zh in docs url for README.zh.md - ([a50858](https://github.com/GZTimeWalker/GZCTF/commit/a50858)) by **Steven He**
 - various fixes - ([ab5cd5](https://github.com/GZTimeWalker/GZCTF/commit/ab5cd5)) by **Steven He**
 - update Japanese translations - ([53b830](https://github.com/GZTimeWalker/GZCTF/commit/53b830)) by **Steven He**
 - correct leet translation - ([1af1f4](https://github.com/GZTimeWalker/GZCTF/commit/1af1f4)) by **Steven He**
 - add i18n support for theme config - ([c002d0](https://github.com/GZTimeWalker/GZCTF/commit/c002d0)) by **Steven He**
 - adding ja to locales config - ([561be8](https://github.com/GZTimeWalker/GZCTF/commit/561be8)) by **Steven He**
+- adding Japanese docs - ([643855](https://github.com/GZTimeWalker/GZCTF/commit/643855)) by **Steven He**
 - i18n for account pages - ([a575f9](https://github.com/GZTimeWalker/GZCTF/commit/a575f9)) by **GZTime**
 - make some type error - ([0eedda](https://github.com/GZTimeWalker/GZCTF/commit/0eedda)) by **Aether Chen**
 - add more useTranslation() - ([4d0670](https://github.com/GZTimeWalker/GZCTF/commit/4d0670)) by **Aether Chen**
@@ -354,16 +440,6 @@ All notable changes to [**GZCTF**](https://github.com/GZTimeWalker/GZCTF) will b
 - use correct name for package versions - ([4c5a70](https://github.com/GZTimeWalker/GZCTF/commit/4c5a70)) by **Steven He**
 - deprecate inappropriate characters - ([934499](https://github.com/GZTimeWalker/GZCTF/commit/934499)) by **GZTime**
 
-### ⚙️ Miscellaneous Tasks
-
-- **(sdk)** dotnet global.json - ([89bb95](https://github.com/GZTimeWalker/GZCTF/commit/89bb95)) by **GZTime**
-- **(style)** format code - ([42ec90](https://github.com/GZTimeWalker/GZCTF/commit/42ec90)) by **GZTime**
-- migrate to .NET 8 - ([8815d3](https://github.com/GZTimeWalker/GZCTF/commit/8815d3)) by **Steven He**
-- merge branch 'develop' into feat/exercise - ([1af9fd](https://github.com/GZTimeWalker/GZCTF/commit/1af9fd)) by **GZTime**
-- tidy up - ([5c67c7](https://github.com/GZTimeWalker/GZCTF/commit/5c67c7)) by **GZTime**
-- format code - ([446052](https://github.com/GZTimeWalker/GZCTF/commit/446052)) by **GZTime**
-- format code - ([192c8f](https://github.com/GZTimeWalker/GZCTF/commit/192c8f)) by **GZTime**
-
 ### 📦 Other Changes
 
 - develop into feat/exercise - ([d3daba](https://github.com/GZTimeWalker/GZCTF/commit/d3daba)) by **GZTime**
@@ -383,10 +459,6 @@ All notable changes to [**GZCTF**](https://github.com/GZTimeWalker/GZCTF) will b
 - cannot list captured traffic - ([43961e](https://github.com/GZTimeWalker/GZCTF/commit/43961e)) by **GZTime**
 - cannot enable traffic capture for static container challenge - ([dc8972](https://github.com/GZTimeWalker/GZCTF/commit/dc8972)) by **GZTime**
 - cannot empty post summary & content - ([3feb43](https://github.com/GZTimeWalker/GZCTF/commit/3feb43)) by **GZTime**
-
-### ⚙️ Miscellaneous Tasks
-
-- format code - ([6051a1](https://github.com/GZTimeWalker/GZCTF/commit/6051a1)) by **GZTime**
 
 ---
 ## [0.17.4](https://github.com/GZTimeWalker/GZCTF/compare/v0.17.3..v0.17.4) - 2023-09-22
@@ -409,11 +481,6 @@ All notable changes to [**GZCTF**](https://github.com/GZTimeWalker/GZCTF) will b
 
 - api type error - ([e61586](https://github.com/GZTimeWalker/GZCTF/commit/e61586)) by **GZTime**
 
-### ⚙️ Miscellaneous Tasks
-
-- Format code & tidy up (#142) - ([346543](https://github.com/GZTimeWalker/GZCTF/commit/346543)) by **GZTime**
-- update log & code style - ([6e79ff](https://github.com/GZTimeWalker/GZCTF/commit/6e79ff)) by **GZTime**
-
 ---
 ## [0.17.1](https://github.com/GZTimeWalker/GZCTF/compare/v0.17.0..v0.17.1) - 2023-09-02
 
@@ -433,11 +500,6 @@ All notable changes to [**GZCTF**](https://github.com/GZTimeWalker/GZCTF) will b
 ### 🎨 Styling
 
 - **(code)** use primary constructors - ([dfd0a4](https://github.com/GZTimeWalker/GZCTF/commit/dfd0a4)) by **GZTime**
-
-### ⚙️ Miscellaneous Tasks
-
-- **(dev)** vscode debug config - ([4f9455](https://github.com/GZTimeWalker/GZCTF/commit/4f9455)) by **GZTime**
-- add tryGetErrorMsg - ([fb89f0](https://github.com/GZTimeWalker/GZCTF/commit/fb89f0)) by **GZTime**
 
 ---
 ## [0.17.0](https://github.com/GZTimeWalker/GZCTF/compare/v0.16.0..v0.17.0) - 2023-08-22
@@ -479,11 +541,6 @@ All notable changes to [**GZCTF**](https://github.com/GZTimeWalker/GZCTF) will b
 ### 🎨 Styling
 
 - use if-return pattern - ([9944be](https://github.com/GZTimeWalker/GZCTF/commit/9944be)) by **GZTime**
-
-### ⚙️ Miscellaneous Tasks
-
-- **(build)** lock swr - ([bdd86e](https://github.com/GZTimeWalker/GZCTF/commit/bdd86e)) by **GZTime**
-- use IEC standard for HunamizeSize - ([b0ba19](https://github.com/GZTimeWalker/GZCTF/commit/b0ba19)) by **Aether Chen**
 
 ### 📦 Other Changes
 
@@ -546,10 +603,6 @@ All notable changes to [**GZCTF**](https://github.com/GZTimeWalker/GZCTF) will b
 - **(frontend)** add padding for index - ([883d3d](https://github.com/GZTimeWalker/GZCTF/commit/883d3d)) by **GZTime**
 - remove padding prop - ([4811e8](https://github.com/GZTimeWalker/GZCTF/commit/4811e8)) by **GZTime**
 
-### ⚙️ Miscellaneous Tasks
-
-- rename `BeianInfo` -> `FooterInfo` - ([2e70f1](https://github.com/GZTimeWalker/GZCTF/commit/2e70f1)) by **GZTime**
-
 ---
 ## [0.15.4](https://github.com/GZTimeWalker/GZCTF/compare/v0.15.3..v0.15.4) - 2023-07-27
 
@@ -588,10 +641,6 @@ All notable changes to [**GZCTF**](https://github.com/GZTimeWalker/GZCTF) will b
 ### 🐛 Bug Fixes
 
 - **(bug)** Instance not saved - ([71536b](https://github.com/GZTimeWalker/GZCTF/commit/71536b)) by **GZTime**
-
-### ⚙️ Miscellaneous Tasks
-
-- rename CTFServer -> GZCTF - ([37802b](https://github.com/GZTimeWalker/GZCTF/commit/37802b)) by **GZTime**
 
 ---
 ## [0.15.1](https://github.com/GZTimeWalker/GZCTF/compare/v0.15.0..v0.15.1) - 2023-07-07
@@ -636,13 +685,6 @@ All notable changes to [**GZCTF**](https://github.com/GZTimeWalker/GZCTF) will b
 - dispatch dynamic flag in a transaction - ([ba915f](https://github.com/GZTimeWalker/GZCTF/commit/ba915f)) by **GZTime**
 - add filter for new submissions - ([77997c](https://github.com/GZTimeWalker/GZCTF/commit/77997c)) by **GZTime**
 - blood bonus can not set to 0 - ([3ab76f](https://github.com/GZTimeWalker/GZCTF/commit/3ab76f)) by **GZTime**
-
-### ⚙️ Miscellaneous Tasks
-
-- add dependabot - ([0088b6](https://github.com/GZTimeWalker/GZCTF/commit/0088b6)) by **GZTime**
-- tidy up - ([773ece](https://github.com/GZTimeWalker/GZCTF/commit/773ece)) by **GZTime**
-- update editor config - ([8562a0](https://github.com/GZTimeWalker/GZCTF/commit/8562a0)) by **GZTime**
-- use Optimal compression level - ([c39b56](https://github.com/GZTimeWalker/GZCTF/commit/c39b56)) by **GZTime**
 
 ---
 ## [0.14.5](https://github.com/GZTimeWalker/GZCTF/compare/v0.14.4..v0.14.5) - 2023-05-28
@@ -793,10 +835,6 @@ All notable changes to [**GZCTF**](https://github.com/GZTimeWalker/GZCTF) will b
 - style - ([aa2b79](https://github.com/GZTimeWalker/GZCTF/commit/aa2b79)) by **GZTime**
 - TimeInput - ([303c23](https://github.com/GZTimeWalker/GZCTF/commit/303c23)) by **GZTime**
 
-### ⚙️ Miscellaneous Tasks
-
-- update text - ([a34c05](https://github.com/GZTimeWalker/GZCTF/commit/a34c05)) by **GZTime**
-
 ### 📦 Other Changes
 
 - bump version to 1.13.2 - ([0c10cc](https://github.com/GZTimeWalker/GZCTF/commit/0c10cc)) by **GZTime**
@@ -868,13 +906,6 @@ All notable changes to [**GZCTF**](https://github.com/GZTimeWalker/GZCTF) will b
 - update scoreboard icon justify & tidy up - ([84e3a0](https://github.com/GZTimeWalker/GZCTF/commit/84e3a0)) by **GZTime**
 - update print style - ([d1100c](https://github.com/GZTimeWalker/GZCTF/commit/d1100c)) by **GZTime**
 - Add bold accent colors - ([678947](https://github.com/GZTimeWalker/GZCTF/commit/678947)) by **GZTime**
-
-### ⚙️ Miscellaneous Tasks
-
-- update logger - ([ac3439](https://github.com/GZTimeWalker/GZCTF/commit/ac3439)) by **GZTime**
-- user can not be null - ([a46a22](https://github.com/GZTimeWalker/GZCTF/commit/a46a22)) by **GZTime**
-- remove ratelimit.json - ([fc5954](https://github.com/GZTimeWalker/GZCTF/commit/fc5954)) by **GZTime**
-- update logger - ([cb3c40](https://github.com/GZTimeWalker/GZCTF/commit/cb3c40)) by **GZTime**
 
 ### 📦 Other Changes
 
@@ -1290,10 +1321,6 @@ All notable changes to [**GZCTF**](https://github.com/GZTimeWalker/GZCTF) will b
 - hint edit - ([603923](https://github.com/GZTimeWalker/GZCTF/commit/603923)) by **GZTime**
 - org rank - ([bde5d3](https://github.com/GZTimeWalker/GZCTF/commit/bde5d3)) by **GZTime**
 
-### ⚙️ Miscellaneous Tasks
-
-- do not run ci on main - ([216f6b](https://github.com/GZTimeWalker/GZCTF/commit/216f6b)) by **GZTime**
-
 ---
 ## [0.5.0](https://github.com/GZTimeWalker/GZCTF/compare/v0.4.2..v0.5.0) - 2022-08-27
 
@@ -1349,10 +1376,6 @@ All notable changes to [**GZCTF**](https://github.com/GZTimeWalker/GZCTF) will b
 - launch test container when updated image or port - ([50a39f](https://github.com/GZTimeWalker/GZCTF/commit/50a39f)) by **GZTime**
 - team rank loading - ([f5e9a2](https://github.com/GZTimeWalker/GZCTF/commit/f5e9a2)) by **GZTime**
 
-### ⚙️ Miscellaneous Tasks
-
-- remove react-dropzone - ([780cc1](https://github.com/GZTimeWalker/GZCTF/commit/780cc1)) by **chenjunyu19**
-
 ### 📦 Other Changes
 
 - add eslint for dev - ([3e19fb](https://github.com/GZTimeWalker/GZCTF/commit/3e19fb)) by **GZTime**
@@ -1376,10 +1399,6 @@ All notable changes to [**GZCTF**](https://github.com/GZTimeWalker/GZCTF) will b
 - redundant quotes - ([ccb9f4](https://github.com/GZTimeWalker/GZCTF/commit/ccb9f4)) by **GZTimeWalker**
 - TeamRadarMap with no data - ([bf940b](https://github.com/GZTimeWalker/GZCTF/commit/bf940b)) by **chenjunyu19**
 - missing key of recent games - ([2a4ff2](https://github.com/GZTimeWalker/GZCTF/commit/2a4ff2)) by **chenjunyu19**
-
-### ⚙️ Miscellaneous Tasks
-
-- update ci - ([6acecb](https://github.com/GZTimeWalker/GZCTF/commit/6acecb)) by **GZTimeWalker**
 
 ---
 ## [0.1.4](https://github.com/GZTimeWalker/GZCTF/compare/v0.1.3..v0.1.4) - 2022-08-11
@@ -1468,19 +1487,13 @@ All notable changes to [**GZCTF**](https://github.com/GZTimeWalker/GZCTF) will b
 - add file ref count - ([f78f17](https://github.com/GZTimeWalker/GZCTF/commit/f78f17)) by **GZTimeWalker**
 - logger - ([d0ad46](https://github.com/GZTimeWalker/GZCTF/commit/d0ad46)) by **GZTimeWalker**
 
-### ⚙️ Miscellaneous Tasks
-
-- explicit dom api - ([d58769](https://github.com/GZTimeWalker/GZCTF/commit/d58769)) by **chenjunyu19**
-- explicit dom api - ([ec19f0](https://github.com/GZTimeWalker/GZCTF/commit/ec19f0)) by **chenjunyu19**
-- move constexpr out of FC - ([798828](https://github.com/GZTimeWalker/GZCTF/commit/798828)) by **chenjunyu19**
-- improve built time - ([916aa6](https://github.com/GZTimeWalker/GZCTF/commit/916aa6)) by **chenjunyu19**
-- turn off annoying explicit any warning - ([c7e137](https://github.com/GZTimeWalker/GZCTF/commit/c7e137)) by **chenjunyu19**
-
 ### 📦 Other Changes
 
 - update card - ([1e032c](https://github.com/GZTimeWalker/GZCTF/commit/1e032c)) by **GZTimeWalker**
 - update CI - ([d1d93c](https://github.com/GZTimeWalker/GZCTF/commit/d1d93c)) by **GZTimeWalker**
 - enable eslint - ([34ed07](https://github.com/GZTimeWalker/GZCTF/commit/34ed07)) by **GZTimeWalker**
+- update dockerfile - ([85b81e](https://github.com/GZTimeWalker/GZCTF/commit/85b81e)) by **GZTimeWalker**
+- dump deps - ([0fda73](https://github.com/GZTimeWalker/GZCTF/commit/0fda73)) by **GZTimeWalker**
 - migrate to vite - ([3e4b7e](https://github.com/GZTimeWalker/GZCTF/commit/3e4b7e)) by **GZTimeWalker**
 - challenge model - ([2d0d4b](https://github.com/GZTimeWalker/GZCTF/commit/2d0d4b)) by **GZTimeWalker**
 - merge - ([e01e64](https://github.com/GZTimeWalker/GZCTF/commit/e01e64)) by **GZTimeWalker**

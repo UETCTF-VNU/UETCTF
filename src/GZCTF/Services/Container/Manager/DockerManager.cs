@@ -3,7 +3,6 @@ using Docker.DotNet;
 using Docker.DotNet.Models;
 using GZCTF.Models.Internal;
 using GZCTF.Services.Container.Provider;
-using GZCTF.Services.Interface;
 using ContainerStatus = GZCTF.Utils.ContainerStatus;
 
 namespace GZCTF.Services.Container.Manager;
@@ -29,7 +28,8 @@ public class DockerManager : IContainerManager
     {
         try
         {
-            await _client.Containers.RemoveContainerAsync(container.ContainerId, new() { Force = true }, token);
+            await _client.Containers.RemoveContainerAsync(container.ContainerId,
+                new() { Force = true }, token);
         }
         catch (DockerContainerNotFoundException)
         {
@@ -193,9 +193,16 @@ public class DockerManager : IContainerManager
         {
             Image = config.Image,
             Labels =
-                new Dictionary<string, string> { ["TeamId"] = config.TeamId, ["UserId"] = config.UserId.ToString() },
+                new Dictionary<string, string>
+                {
+                    ["TeamId"] = config.TeamId,
+                    ["UserId"] = config.UserId.ToString(),
+                    ["ChallengeId"] = config.ChallengeId.ToString()
+                },
             Name = DockerMetadata.GetName(config),
-            Env = config.Flag is null ? [] : [$"GZCTF_FLAG={config.Flag}"],
+            Env = config.Flag is null
+                ? [$"GZCTF_TEAM_ID={config.TeamId}"]
+                : [$"GZCTF_FLAG={config.Flag}", $"GZCTF_TEAM_ID={config.TeamId}"],
             HostConfig = new()
             {
                 Memory = config.MemoryLimit * 1024 * 1024,

@@ -12,6 +12,7 @@
 
 [![Telegram Group](https://img.shields.io/endpoint?color=blue&url=https%3A%2F%2Ftg.sumanjay.workers.dev%2Fgzctf)](https://telegram.dog/gzctf)
 [![QQ Group](https://img.shields.io/badge/QQ%20Group-903244818-blue)](https://jq.qq.com/?_wv=1027&k=muSqhF9x)
+[![Discord](https://img.shields.io/discord/1239476909033656320?label=Discord)](https://discord.gg/dV9A6ZjVhC)
 
 [English](./README.md), [简体中文](./README.zh.md), [日本語](./README.ja.md)
 
@@ -30,6 +31,7 @@ GZ::CTF 是一个基于 ASP.NET Core 的开源 CTF 平台。
 - 创建高度可自定义的题目
 
   - 题目类型：静态附件、动态附件、静态容器、动态容器
+
     - 静态附件：共用附件，任意添加的 flag 均可提交。
     - 动态附件：需要至少满足队伍数量的 flag 和附件，附件及 flag 按照队伍进行分发。
     - 静态容器：共用容器模版，不下发 flag，任意添加的 flag 均可提交。
@@ -114,8 +116,9 @@ GZ::CTF 是一个基于 ASP.NET Core 的开源 CTF 平台。
 - **南阳师范学院招新赛 NYNUCTF S4**
 - **商丘师范学院首届网络安全新生挑战赛**
 - **苏州市职业大学 2023 年冬季新生赛 [SVUCTF-WINTER-2023](https://github.com/SVUCTF/SVUCTF-WINTER-2023)**
-- **北京经济管理职业学院 首届BIEM“信安杯”CTF竞赛**
+- **北京经济管理职业学院 首届 BIEM“信安杯”CTF 竞赛**
 - **北京航空航天大学 BUAACTF 2024**
+- **加州大学圣迭戈分校 San Diego CTF 2024**
 
 _排名不分先后，欢迎提交 PR 进行补充。_
 
